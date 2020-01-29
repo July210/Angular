@@ -1,0 +1,86 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>	Testando...</title>
+	<script src="..\angular-1.7.7\angular.js"></script>
+	<script src="..\bower-angular-sanitize-master\angular-sanitize.js"></script>
+    <script src="..\bower-angular-sanitize-master\angular-sanitize.min.js"></script>
+    <script src="..\bower-angular-smyanitize-master\angular-sanitize.min.js.map"></script>
+    <link rel="stylesheet" type="text/css" href="ultraCss.css">
+	<script src="ultraJavascript.js"></script>
+	
+    <!-- Não colocar uma "matriz dentro das variáveis anoAtual, nome e etc.. pois vai ocorrer erro no alerta de prenchimento indevido, achar uma outra solução"-->
+
+</head>
+
+<body ng-controller="control" class="allMith">
+	<div class="opcoes">
+		<form class="col-12">
+			<p class="col-md-6">SELECIONE UMA OPÇÃO:</p>
+		<span class="col-md-6">	
+  		<input type="radio" name="opcao" ng-click="opcoes('procurar')"> Procurar<br>
+		<input type="radio" name="opcao" ng-click="opcoes('cadastro')"> Cadastrar<br>
+		</span> 
+		</form>
+	</div>
+	<section ng-hide="menu1">
+	<div class="pForm col-md-5">
+		<h2 class="title">Procurar</h2>
+		<hr>
+		<form name="meuForm">
+		<p>Digite o nome completo:</p>
+		<input ng-model="procura"><br><br>
+		<button ng-model="btnEnviar" ng-click="procuraCadastro()" id="but">Procurar</button> 
+		</form>
+	</div>
+	<div>
+		<span ng-bind="buscaVazia" class="fichaT col-md-5" ng-hide="erroBusca1"></span> 
+		<div ng-hide="procResult" class="fichaT">	
+			<h5>FICHAS ENCONTRADAS:</h5>
+			<hr>
+			<table class="result">
+  				<tr class="tabelaTitulo">
+  					<td>Nome</td>
+  					<td>Ano de nascimento</td>
+  					<td>E-mail</td>
+  				</tr>
+  				<tr ng-repeat="x in fichas | filter:{name:procura}">
+    			<td>{{ x.name }}</td>
+    			<td>{{ x.anoN }}</td>
+    			<td>{{ x.tEmail }}</td>
+  				</tr>
+			</table>
+		</div>
+	</div>
+	</section>
+	<section ng-hide="menu2">
+		<div class="pForm">
+			<h2 class="title">Fazer cadastro</h2>
+			<hr>
+			<form name="meuForm">
+			<p>Digite o nome completo:</p>
+			<input type="text" ng-model="nomePrincipal">
+			<p>Digite o ano do seu nascimento:</p>
+			<input type="text" ng-model="anoNasc">
+			<p>Digite o seu e-mail:</p>
+			<input type="email" name="myEmail" ng-model="textEmail">
+			<span ng-show="meuForm.myEmail.$error.email">Esse não é um e-mail valido!</span>
+			<br><br>
+			<button ng-model="btnEnviar" ng-click="mudaStatus()">Enviar</button> <!-- Verifica se todos os campos estão preenchidos -->
+			</form>
+		</div>
+		<div>
+			<span ng-bind="errorPreenc" class="fichaT" ng-hide="erroBusca2"></span> 
+			<div ng-hide="fichaTec" class="fichaT">	
+			<h3>Ficha técnica:</h3>
+				<p>Nome:</p> {{nomePrincipal}}
+					<span><p>Idade:</p> {{anoAtual - anoNasc}}</span>
+					<span><p>E-mail:</p>{{textEmail}}</span>
+				
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

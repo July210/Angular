@@ -1,0 +1,51 @@
+        h5 {
+    		text-transform: uppercase;
+    	}
+    	.title {
+    		text-transform: uppercase;
+    		text-align: center;
+    	}
+    	.campoForm {
+    		text-align: center;
+
+    	}
+    	.fichaT {
+            margin-top: 20px;
+    		padding: 10px;
+    		width: 45%;
+    		display: block;
+    		background-color:#ffffff;
+    		box-shadow: 1px 1px 1px 1px grey;
+    		float: right;
+            text-align: center;
+    	}
+    	.pForm {
+            margin-top: 20px;
+    		padding: 10px;
+    		width: 45%;
+    		display: block;
+    		background-color:#ffffff;
+    		box-shadow: 1px 1px 1px 1px grey;
+    		float: left;
+    	}
+    	.esp {
+    		padding-top: 20px;
+    	}
+        .opcoes {
+            padding: 10px;
+            display: block;
+            background-color:#ffffff;
+            box-shadow: 1px 1px 1px 1px grey;
+            text-align: center;
+        } 
+        .result{
+            border: 1px solid white;
+		}
+		.allMith{
+			font-family: "Segoe UI",Arial,sans-serif;
+			background-image: url(christopher-gower-291246-unsplash.jpg);
+			background-repeat: no-repeat;
+			background-size: 1000px 730px;
+			background-position: top; 
+			color: #323232;
+		}

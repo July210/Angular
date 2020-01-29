@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="parking">
+  <head>
+    <title>[Packt] Parking</title>
+    <script src="angular-1.7.7\angular.js"></script>
+    <script src="bower-angular-sanitize-master\angular-sanitize.js"></script>
+    <script src="bower-angular-sanitize-master\angular-sanitize.min.js"></script>
+    <script src="bower-angular-sanitize-master\angular-sanitize.min.js.map"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directives.js"></script>
+    <style>
+      .selected {
+        background-color: #FAFAD2;
+      }
+      td{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body ng-controller="parkingCtrl">
+    <h3 ng-bind-html="appTitle"></h3>
+    <table>
+      <thead ng-show="cars.length > 0">
+        <tr>
+          <th>&nbsp;&nbsp;</th>
+          <th>Plate</th>
+          <th>Color</th>
+          <th>Entrance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="{selected: car.selected}" ng-repeat="car in cars" ng-show="showMe">
+          <td><input type="checkbox" ng-model="car.selected"/></td>
+          <td><span ng-bind="car.plate"></span></td>
+          <td><span ng-bind="car.color"></span></td>
+          <td><span ng-bind="car.entrance"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <input 
+      type="text" 
+      ng-model="car.plate" 
+      placeholder="What's the plate?"
+    />
+    <select 
+      ng-model="car.color" 
+      ng-options="color for color in colors"
+    >
+      Pick a color
+    </select>
+    <button ng-click="park(car)">Park</button>
+    <br>
+    <br>
+    <button ng-click="myFunc(car.selected)">Sair</button>
+    <alert ng-show="showAlert"
+    topic = "alertTopic"
+    description = "descriptionTopic"
+    close = "closeAlert()">
+    </alert>
+    <p></p>
+  </body>
+</html>
